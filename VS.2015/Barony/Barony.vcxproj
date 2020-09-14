@@ -266,8 +266,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Program Files (x86)\FMOD SoundSystem\FMOD Programmers API Windows\api\inc;C:\programming\turning_wheel\GameLibs\SDL2-2.0.4\include;C:\programming\turning_wheel\GameLibs\SDL2_image-2.0.0\include;C:\programming\turning_wheel\GameLibs\SDL2_net-2.0.0\include;C:\programming\turning_wheel\GameLibs\libpng-1.2.37-lib\include;C:\programming\turning_wheel\GameLibs\zlib-1.2.3-lib\include;C:\programming\turning_wheel\GameLibs\steamworks_sdk_138a\sdk\public;C:\programming\turning_wheel\GameLibs\SDL2_ttf-2.0.14\include;C:\programming\turning_wheel\GameLibs\missing_windows_includes;P:\Ben\Documents\Visual Studio 2015\Projects\libphysfs</IncludePath>
-    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);C:\Program Files (x86)\FMOD SoundSystem\FMOD Programmers API Windows\api\lib;C:\programming\turning_wheel\GameLibs\SDL2-2.0.4\lib\x86;C:\programming\turning_wheel\GameLibs\SDL2_image-2.0.0\lib\x86;C:\programming\turning_wheel\GameLibs\SDL2_net-2.0.0\lib\x86;C:\programming\turning_wheel\GameLibs\libpng-1.2.37-lib\lib;C:\programming\turning_wheel\GameLibs\zlib-1.2.3-lib\lib;C:\programming\turning_wheel\GameLibs\steamworks_sdk_138a\sdk\redistributable_bin;C:\programming\turning_wheel\GameLibs\SDL2_ttf-2.0.14\lib\x86;P:\Ben\Documents\Visual Studio 2015\Projects\libphysfs;$(SolutionDir)..\VS-libs</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Program Files (x86)\FMOD SoundSystem\FMOD Programmers API Windows\api\inc;$(SolutionDir)external\SDL2-2.0.12\include;$(SolutionDir)external\SDL2_image-2.0.5\include;$(SolutionDir)external\SDL2_net-2.0.1\include;$(SolutionDir)external\SDL2_ttf-2.0.15\include;$(SolutionDir)external\lpng;$(SolutionDir)external\zlib;$(SolutionDir)external\physfs;$(SolutionDir)external\rapidjson\include;$(SolutionDir)external\steamworks_sdk_150\sdk\public;C:\programming\turning_wheel\GameLibs\missing_windows_includes;P:\Ben\Documents\Visual Studio 2015\Projects\libphysfs</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);C:\Program Files (x86)\FMOD SoundSystem\FMOD Programmers API Windows\api\lib;$(SolutionDir)external\SDL2-2.0.12\lib\x86;$(SolutionDir)external\SDL2_image-2.0.5\lib\x86;$(SolutionDir)external\SDL2_net-2.0.1\lib\x86;$(SolutionDir)external\SDL2_ttf-2.0.15\lib\x86;$(SolutionDir)external\lpng\projects\vstudio\Release;$(SolutionDir)external\steamworks_sdk_150\sdk\redistributable_bin;$(SolutionDir)external\physfs;$(SolutionDir)..\VS-libs</LibraryPath>
     <TargetName>$(ProjectName)-debug</TargetName>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
@@ -404,7 +404,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>OpenGL32.lib;glu32.lib;SDL2.lib;SDL2main.lib;SDL2_net.lib;SDL2_image.lib;fmodex_vc.lib;libpng.lib;zlib.lib;steam_api.lib;SDL2_ttf.lib;physfs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OpenGL32.lib;glu32.lib;SDL2.lib;SDL2main.lib;SDL2_net.lib;SDL2_image.lib;libpng16.lib;zlib.lib;steam_api.lib;SDL2_ttf.lib;physfs.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>robocopy "$(TargetDir)\" "$(SolutionDir)Release" $(TargetFileName)
@@ -1049,7 +1049,17 @@ if %errorlevel% leq 1 exit 0 else exit %errorlevel%</Command>
   <ItemGroup>
     <ResourceCompile Include="..\..\src\wingameicon.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\dirent.1.13.1\build\native\dirent.targets" Condition="Exists('..\packages\dirent.1.13.1\build\native\dirent.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\dirent.1.13.1\build\native\dirent.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\dirent.1.13.1\build\native\dirent.targets'))" />
+  </Target>
 </Project>
