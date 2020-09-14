@@ -1,0 +1,10 @@
+Place the required dependencies in this folder:
+1)lpng
+2)physfs
+3)rapidjson
+4)SDL2_image
+5)SDL2_net
+6)SDL2_ttf
+7)SDL2
+8)steamworks_sdk
+9)zlib

@@ -1,0 +1,9 @@
+lpng/
+physfs/
+rapidjson/
+SDL2_image-*/
+SDL2_net-*/
+SDL2_ttf-*/
+SDL2-*/
+steamworks_sdk_*/
+zlib/
