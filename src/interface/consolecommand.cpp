@@ -2827,27 +2827,27 @@ void consoleCommand(char const * const command_str)
 		}
 		else if ( !strncmp(command_str, "/sfxambientdynamic", 18) )
 		{
-			sfxUseDynamicAmbientVolume = !sfxUseDynamicAmbientVolume;
-			if ( sfxUseDynamicAmbientVolume )
-			{
-				messagePlayer(clientnum, "Dynamic ambient volume ON");
-			}
-			else
-			{
-				messagePlayer(clientnum, "Dynamic ambient volume OFF");
-			}
+			//sfxUseDynamicAmbientVolume = !sfxUseDynamicAmbientVolume;
+			//if ( sfxUseDynamicAmbientVolume )
+			//{
+			//	messagePlayer(clientnum, "Dynamic ambient volume ON");
+			//}
+			//else
+			//{
+			//	messagePlayer(clientnum, "Dynamic ambient volume OFF");
+			//}
 		}
 		else if ( !strncmp(command_str, "/sfxenvironmentdynamic", 22) )
 		{
-			sfxUseDynamicEnvironmentVolume = !sfxUseDynamicEnvironmentVolume;
-			if ( sfxUseDynamicEnvironmentVolume )
-			{
-				messagePlayer(clientnum, "Dynamic environment volume ON");
-			}
-			else
-			{
-				messagePlayer(clientnum, "Dynamic environment volume OFF");
-			}
+			//sfxUseDynamicEnvironmentVolume = !sfxUseDynamicEnvironmentVolume;
+			//if ( sfxUseDynamicEnvironmentVolume )
+			//{
+			//	messagePlayer(clientnum, "Dynamic environment volume ON");
+			//}
+			//else
+			//{
+			//	messagePlayer(clientnum, "Dynamic environment volume OFF");
+			//}
 		}
 		else if ( !strncmp(command_str, "/sfxenvironmentvolume", 21) )
 		{
