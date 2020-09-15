@@ -5,6 +5,8 @@
 
 //#define USE_FMOD
 
+#define USE_OPENAL
+
 #define EDITOR_EXE_NAME "editor"
 
 #define BASE_DATA_DIR "./"
